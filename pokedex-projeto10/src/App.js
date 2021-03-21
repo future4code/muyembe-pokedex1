@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import TelaDetalhe from '../src/components/detalhe/telaDetalhes'
+import TelaDetalhe from '../src/components/detalhe/telaDetalhe/telaDetalhes'
 
 function App() {
   return (
