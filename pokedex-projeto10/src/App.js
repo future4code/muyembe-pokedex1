@@ -1,12 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import TelaDetalhe from '../src/components/detalhe/telaDetalhe/telaDetalhes'
+import TelaHome from './components/home/telaHome';
+import GlobalState from './Global/globalState';
 
 function App() {
   return (
-    <div className="App">
-      <TelaDetalhe/>
-    </div>
+    <GlobalState>
+      <div>
+      {/* <TelaDetalhe/> */}
+      <TelaHome/>
+      </div>
+    </GlobalState>
   );
 }
 
