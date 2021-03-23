@@ -1,16 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useContext, useEffect} from 'react'
 import PokeCard from './cardComponent/PokeCard'
 import GlobalStateContext from '../../Global/globalStateContext'
 import { ContainerHome } from './cardComponent/styles'
 import ButtonAppBar from './barraHeader/barraHeader'
 
 const TelaHome = () => {  
-  const { states, setters, requests } = useContext(GlobalStateContext)
+  const { states, requests } = useContext(GlobalStateContext)
 
   useEffect(() => {
     requests.listaPokemons()
-  }, [])
+  }, [requests])
 
   return (
     <div>
