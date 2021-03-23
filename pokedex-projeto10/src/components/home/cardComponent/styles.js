@@ -9,16 +9,18 @@ export const CardImagem = styled.div`
 
 export const ImgPokemon = styled.img`
     padding: 0;
-    height: 160px;
-    width: 160px;
+    height: 10vh;
+    width: 10vh;
 `
 
 export const DivCard = styled.div`
-    margin: 15px;
+    margin: 20px;
 `
 
 export const ContainerHome = styled.div`
     display: grid;
+    justify-content: center;
+    align-items: center;
     margin-top: 10vh;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto auto auto;
@@ -33,9 +35,10 @@ export const DivNomeImagem = styled.div`
 
 export const DivBotoes = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 5vh;
-    margin: 2px;
+    margin-left: 1vh;
+    margin-right: 1vh;
 `
 
