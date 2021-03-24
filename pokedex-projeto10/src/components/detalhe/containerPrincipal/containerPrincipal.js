@@ -15,7 +15,6 @@ export default function SimpleContainer(props) {
   const [pokemonImage, setPokemonImage] = useState("");
   const { states, setters, requests } = useContext(GlobalStateContext)
   const [isShiny, setIsShiny] = useState(false)
-  const [shiny, setShiny] = useState(pokemonImage.front_shiny)
 
   useEffect(()=> {
     buscaPokemon()
@@ -24,7 +23,7 @@ export default function SimpleContainer(props) {
 
   const buscaPokemon = () => {
     axios
-      .get(`${BASE_URL}/pokemon/charizard`)
+      .get(`${BASE_URL}/pokemon/dragonair`)
       .then((response) => {
         console.log(response);
         setPokemon(response);
@@ -39,9 +38,6 @@ export default function SimpleContainer(props) {
 
  const onClickShinyFront = () => {
   setIsShiny(!isShiny)
-   if(isShiny) {
-     setPokemonImage(shiny)
-   }
  }
 
   return (
@@ -76,12 +72,18 @@ export default function SimpleContainer(props) {
               placeItems: 'center'
             }}
           >
-            <img
+            {isShiny ? <img
               onClick={onClickShinyFront}
               style={{ width: "9vw", height: "20vh", cursor: 'pointer' }}
-              src={pokemonImage.front_default}
+              src={pokemonImage.front_shiny}
 
-            />
+            /> : <img
+            onClick={onClickShinyFront}
+            style={{ width: "9vw", height: "20vh", cursor: 'pointer' }}
+            src={pokemonImage.front_default}
+
+          /> }
+            
             
           </Box>
           <Box
@@ -100,10 +102,17 @@ export default function SimpleContainer(props) {
               placeItems: 'center'
             }}
           >
-            <img
-              style={{ width: "8vw", height: "20vh" }}
-              src={pokemonImage.back_default}
-            />
+            {isShiny ? <img
+              onClick={onClickShinyFront}
+              style={{ width: "10vw", height: "20vh", cursor: 'pointer' }}
+              src={pokemonImage.back_shiny}
+
+            /> : <img
+            onClick={onClickShinyFront}
+            style={{ width: "10vw", height: "20vh", cursor: 'pointer' }}
+            src={pokemonImage.back_default}
+
+          /> }
           </Box>
         </div>
 
