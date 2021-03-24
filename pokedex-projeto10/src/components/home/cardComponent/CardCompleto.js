@@ -2,10 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 import { CardImagem, ImgPokemon, DivCard, DivNomeImagem, DivBotoes } from './styles'
 
 const useStyles = makeStyles({
@@ -22,7 +22,14 @@ export default function CardCompleto(props) {
 
   return (
     <DivCard>
-    <Card style={{ backgroundColor: '#232323'}} className={classes.root}>
+    <Card style={{ 
+        display: 'flex',
+        'flex-direction': 'column',
+        'justify-content': 'center',
+        backgroundColor: '#232323',
+        height: '30vh',
+        width: '30vh'
+        }} className={classes.root}>
       <CardActionArea>
         <DivNomeImagem>
           <CardImagem>
@@ -32,6 +39,7 @@ export default function CardCompleto(props) {
             <Typography style={{ color: '#f2f2f2'}} gutterBottom variant="h5" component="h2">
               {props.nomePokemon}
             </Typography>
+            {/* <Chip label="Basic">{props.tipoPokemon}</Chip> */}
           </CardContent>
         </DivNomeImagem>
       </CardActionArea>

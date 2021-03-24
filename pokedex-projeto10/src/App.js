@@ -1,14 +1,10 @@
-import TelaDetalhe from '../src/components/detalhe/telaDetalhe/telaDetalhes'
-import TelaHome from './components/home/telaHome';
 import GlobalState from './Global/globalState';
+import Router from '../src/router/router'
 
 function App() {
   return (
     <GlobalState>
-      <div>
-      <TelaDetalhe/>
-      {/* <TelaHome/> */}
-      </div>
+      <Router/>
     </GlobalState>
   );
 }

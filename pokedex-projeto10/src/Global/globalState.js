@@ -17,11 +17,10 @@ const GlobalState = (props) => {
         })
     }
     
-    const pokeDados = (nomePokemon) => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`)
+    const pokeDados = (nome) => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${nome}`)
         .then((res) => {
             setPokemonsDados(res.data)
-            console.log(pokemonsDados)
         }).catch((err) => {
             console.log(err)
         })
