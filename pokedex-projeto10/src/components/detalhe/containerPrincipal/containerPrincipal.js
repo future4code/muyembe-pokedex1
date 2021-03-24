@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -7,20 +7,24 @@ import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../requisições/requisicoes";
 import { Progress } from "../progressBar/progressBar";
-import {StyledP} from  './styles'
+import {StyledP, StyledStat, MovesList} from  './styles'
+import GlobalStateContext from '../../../Global/globalStateContext'
 
-export default function SimpleContainer() {
+export default function SimpleContainer(props) {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonImage, setPokemonImage] = useState("");
+  const { states, setters, requests } = useContext(GlobalStateContext)
+  const [isShiny, setIsShiny] = useState(false)
+  const [shiny, setShiny] = useState(pokemonImage.front_shiny)
 
-
-  useEffect(() => {
+  useEffect(()=> {
     buscaPokemon()
-}, []);
+  }, [])
+  
 
   const buscaPokemon = () => {
     axios
-      .get(`${BASE_URL}/pokemon/bulbasaur`)
+      .get(`${BASE_URL}/pokemon/charizard`)
       .then((response) => {
         console.log(response);
         setPokemon(response);
@@ -33,12 +37,19 @@ export default function SimpleContainer() {
       });
   }
 
- 
+ const onClickShinyFront = () => {
+  setIsShiny(!isShiny)
+   if(isShiny) {
+     setPokemonImage(shiny)
+   }
+ }
 
   return (
     <React.Fragment>
       <CssBaseline />
       <Container
+
+      
         maxWidth="xl"
         style={{
           padding: "0",
@@ -66,7 +77,8 @@ export default function SimpleContainer() {
             }}
           >
             <img
-              style={{ width: "9vw", height: "20vh" }}
+              onClick={onClickShinyFront}
+              style={{ width: "9vw", height: "20vh", cursor: 'pointer' }}
               src={pokemonImage.front_default}
 
             />
@@ -94,7 +106,8 @@ export default function SimpleContainer() {
             />
           </Box>
         </div>
-        <Box
+
+        {pokemon && pokemon.data && pokemon.data.stats.length > 0 ?  <Box
           style={{
             backgroundColor: "#f2f2f2",
             width: "20vw",
@@ -107,9 +120,9 @@ export default function SimpleContainer() {
             boxShadow: '0 0 60px rgba(0, 0, 0, 0.9)'
           }}
         >
-          <p>Stats</p>
+          <StyledStat>Stats</StyledStat>
           
-          <div
+           <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -126,7 +139,9 @@ export default function SimpleContainer() {
             <StyledP>SP Defense:{<Progress done={pokemon.data.stats[4].base_stat}/>}</StyledP>
             <StyledP>Speed:{<Progress done={pokemon.data.stats[5].base_stat}/>}</StyledP>
           </div>
-        </Box>
+          
+        </Box> : ''}
+        
         <div>
           <Box
             style={{
@@ -141,9 +156,12 @@ export default function SimpleContainer() {
               boxShadow: '0 0 60px rgba(0, 0, 0, 0.9)'
             }}
           >
-            {/* <p>{`Type: ${pokemon.data.types[0].type.name}`} and {pokemon.data.types[1].type.name} 
-            </p> */}
+
+            {pokemon && pokemon.data && pokemon.data.types.length > 0 ? <StyledStat>{`${pokemon.data.types[0].type.name}`}
+            </StyledStat> : ''}
+            
           </Box>
+
           <Box
             style={{
               backgroundColor: "#f2f2f2",
@@ -156,20 +174,26 @@ export default function SimpleContainer() {
               margin: "20px",
               boxShadow: '0 0 60px rgba(0, 0, 0, 0.9)'
             }}
-          > <div style={{
+          > 
+          {pokemon && pokemon.data && pokemon.data.moves.length > 0 ? <div style={{
             display: "flex",
             flexDirection: "column",
-            placeContent: "start-end",
-            placeItems: "flex-start",
+            placeContent: "center",
+            placeItems: "center",
             marginLeft: '2vw',
             marginTop: '4vh'
           }}> 
-            <p>Moves</p>
-            <p>Vine whip</p>
-            <p>Razor-leaf</p>
-            <p>Solar Beam</p>
-            </div>
+            
+            <div><StyledStat>Moves</StyledStat></div>
+            <MovesList>{pokemon.data.moves[0].move.name.toUpperCase()}</MovesList>
+            <MovesList>{pokemon.data.moves[1].move.name.toUpperCase()}</MovesList>
+            <MovesList>{pokemon.data.moves[2].move.name.toUpperCase()}</MovesList>
+            <MovesList>{pokemon.data.moves[3].move.name.toUpperCase()}</MovesList>
+
+            </div> : '' }
+          
           </Box>
+          
         </div>
         <Typography
           component="div"

@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 
 export const ProgressBar = styled.div`
-    background-color: #d8d8d8;
+    background-color: #232323;
     border-radius: 20px;
     height: 15px;
     width: 150px;
@@ -19,3 +18,4 @@ export const ProgressDone = styled.div`
     transition: 1s ease 0.3s;
 
 `
+

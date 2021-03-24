@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import TelaDetalhe from '../src/components/detalhe/telaDetalhe/telaDetalhes'
 import TelaHome from './components/home/telaHome';
 import GlobalState from './Global/globalState';
@@ -8,8 +6,8 @@ function App() {
   return (
     <GlobalState>
       <div>
-      {/* <TelaDetalhe/> */}
-      <TelaHome/>
+      <TelaDetalhe/>
+      {/* <TelaHome/> */}
       </div>
     </GlobalState>
   );
