@@ -36,7 +36,7 @@ export default function ButtonAppBar() {
             <Button variant="contained" style={{backgroundColor: '#f2f2f2'}}>VOLTAR</Button>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-           Pokemon
+           {/* <p>{states.pokemonsDados.name}</p> */}
           </Typography>
           <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
         Adicionar/Remover da Pokedex

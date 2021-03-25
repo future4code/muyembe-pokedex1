@@ -9,6 +9,8 @@ import { BASE_URL } from "../../requisições/requisicoes";
 import { Progress } from "../progressBar/progressBar";
 import {StyledP, StyledStat, MovesList} from  './styles'
 import GlobalStateContext from '../../../Global/globalStateContext'
+import bug from '../../../assets/bug.png'
+import grass from '../../../assets/grass.png'
 
 export default function SimpleContainer(props) {
   const [pokemon, setPokemon] = useState([]);
@@ -23,7 +25,7 @@ export default function SimpleContainer(props) {
 
   const buscaPokemon = () => {
     axios
-      .get(`${BASE_URL}/pokemon/dragonair`)
+      .get(`${BASE_URL}/pokemon/kyogre`)
       .then((response) => {
         console.log(response);
         setPokemon(response);
@@ -39,6 +41,19 @@ export default function SimpleContainer(props) {
  const onClickShinyFront = () => {
   setIsShiny(!isShiny)
  }
+
+
+//  switch(pokemon.data.types[0].type.name) {
+//    case 'bug':
+//      pokemon.data.types[0].type.name = bug
+//      break;
+//    case 'grass':
+//     pokemon.data.types[0].type.name = grass
+//     break;
+//     default:
+//       console.log('deu ruim')
+//  }
+ 
 
   return (
     <React.Fragment>
@@ -104,12 +119,12 @@ export default function SimpleContainer(props) {
           >
             {isShiny ? <img
               onClick={onClickShinyFront}
-              style={{ width: "10vw", height: "20vh", cursor: 'pointer' }}
+              style={{ width: "8vw", height: "16vh", cursor: 'pointer' }}
               src={pokemonImage.back_shiny}
 
             /> : <img
             onClick={onClickShinyFront}
-            style={{ width: "10vw", height: "20vh", cursor: 'pointer' }}
+            style={{ width: "8vw", height: "16vh", cursor: 'pointer' }}
             src={pokemonImage.back_default}
 
           /> }
@@ -165,7 +180,7 @@ export default function SimpleContainer(props) {
               boxShadow: '0 0 60px rgba(0, 0, 0, 0.9)'
             }}
           >
-
+            
             {pokemon && pokemon.data && pokemon.data.types.length > 0 ? <StyledStat>{`${pokemon.data.types[0].type.name}`}
             </StyledStat> : ''}
             
