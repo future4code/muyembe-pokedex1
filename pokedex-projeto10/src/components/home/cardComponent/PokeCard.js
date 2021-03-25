@@ -1,42 +1,40 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 import axios from 'axios'
 import CardCompleto from './CardCompleto'
 
 const PokeCard = (props) => {
+
+    const [dadosPokemon, setDadosPokemon] = useState()
     
-    const [fotoPokemon, setFotoPokemon] = useState()
-    /* const [tipoPokemon, setTipoPokemon] = useState() */
+    const history = useHistory()
 
     useEffect(() => {
-        pegarFotoPokemon()
-        /* pegarTipoPokemon() */
+        pegarDadosPokemon()
     }, [])
 
-    const pegarFotoPokemon = () => {
+    const pegarDadosPokemon = () => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${props.nome}`)
         .then((res) => {
-            setFotoPokemon(res.data.sprites.versions['generation-v']['black-white'].animated.front_default)
+            setDadosPokemon(res.data)
         }).catch((err) => {
             console.log(err)
         })
     }
 
-    /* const pegarTipoPokemon = () => {
-        axios.get(`https://pokeapi.co/api/v2/type/${props.nome}`)
-        .then((res) => {
-            setTipoPokemon(res.data)
-        }).catch((err) => {
-            console.log(err)
-        })
-    } */
-    
+    const onClickDetalhes = () => {
+      history.push(`/detalhes/${props.nome.toLowerCase()}`)
+    }
+
     return (
         <div>
-            <CardCompleto 
-                fotoPokemon={fotoPokemon}
-                nomePokemon={props.nome.toUpperCase()}
-                /* tipoPokemon={tipoPokemon} */
-            />
+            {dadosPokemon &&
+                <CardCompleto  
+                    fotoPokemon={dadosPokemon.sprites.versions['generation-v']['black-white'].animated.front_default}
+                    nomePokemon={props.nome}
+                    tipoPokemon={dadosPokemon.types[0].type.name}
+                    onClickDetalhes={onClickDetalhes}
+                /> }
         </div>
     )
 }

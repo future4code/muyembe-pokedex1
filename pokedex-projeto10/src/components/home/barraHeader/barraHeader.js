@@ -2,11 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './themes/theme';
+import { DivHeader } from './style';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,15 +28,12 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar style={{backgroundColor: '#232323' }}>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}}>VOLTAR</Button>
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Bulbasaur
-          </Typography>
-          <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
-        Adicionar/Remover da Pokedex
-      </Button>
+          <DivHeader>
+            <img alt="pokemon-logo" style={{height: '5vh'}} src="https://i2.wp.com/multarte.com.br/wp-content/uploads/2019/03/pokemon-png-logo.png?fit=2000%2C736&ssl=1"></img> 
+            <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
+              Ir pra Pokedex
+            </Button>
+          </DivHeader>
         </Toolbar>
       </AppBar>
     </div>
