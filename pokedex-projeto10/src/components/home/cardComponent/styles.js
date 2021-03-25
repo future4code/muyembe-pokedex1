@@ -8,12 +8,17 @@ export const CardImagem = styled.div`
 `
 
 export const ImgPokemon = styled.img`
-    padding: 0;
+    padding: 1vh;
     height: 10vh;
     width: 10vh;
+    margin-top: 0,2vh;
 `
 
 export const DivCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
 `
 
@@ -21,7 +26,7 @@ export const ContainerHome = styled.div`
     display: grid;
     justify-content: center;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 7vh;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto auto auto;
 `

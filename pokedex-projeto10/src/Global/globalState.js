@@ -5,7 +5,6 @@ import GlobalStateContext from './globalStateContext'
 const GlobalState = (props) => {
 
     const [pokemons, setPokemons] = useState([])
-    const [pokemonsDados, setPokemonsDados] = useState()
     const [pokedex, setPokedex] = useState([])
 
     const listaPokemons = () => {
@@ -16,19 +15,10 @@ const GlobalState = (props) => {
             console.log(err)
         })
     }
-    
-    const pokeDados = (nome) => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${nome}`)
-        .then((res) => {
-            setPokemonsDados(res.data)
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
 
-    const states = { pokemons, pokemonsDados, pokedex }
-    const setters = { setPokemons, setPokemonsDados, setPokedex}
-    const requests = { listaPokemons, pokeDados }
+    const states = { pokemons, pokedex }
+    const setters = { setPokemons, setPokedex}
+    const requests = { listaPokemons }
 
     const dados = { states, setters, requests }
     
