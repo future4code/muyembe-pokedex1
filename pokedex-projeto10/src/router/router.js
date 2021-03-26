@@ -10,9 +10,9 @@ const Router = () => {
           <Route exact path="/">
             <TelaHome/>
           </Route>
-        <Route exact path="/pokedex">
+        {/* <Route exact path="/pokedex">
             <Pokedex/>
-          </Route>
+          </Route> */}
           <Route exact path="/detalhes/:nomePokemon">
             <TelaDetalhe/>
           </Route>

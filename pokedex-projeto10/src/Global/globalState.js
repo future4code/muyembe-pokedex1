@@ -8,7 +8,7 @@ const GlobalState = (props) => {
     const [pokedex, setPokedex] = useState([])
 
     const listaPokemons = () => {
-        axios.get('https://pokeapi.co/api/v2/pokemon')
+        axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151')
         .then((res) => {
             setPokemons(res.data.results)
         }).catch((err) => {

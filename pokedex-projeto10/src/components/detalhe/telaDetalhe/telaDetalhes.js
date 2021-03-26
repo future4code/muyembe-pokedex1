@@ -30,11 +30,11 @@ const TelaDetalhe = () => {
       });
   };
 
-  const evolution = () => {
+  const evolution = () => { 
     axios
-      .get(`${BASE_URL}/evolution-chain/1`)
+      .get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon?.data?.id}/`)
       .then((response) => {
-        console.log(response);
+        console.log("é esse aqui", response);
       })
       .catch((error) => {
         console.log(error);

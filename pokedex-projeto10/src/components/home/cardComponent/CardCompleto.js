@@ -93,14 +93,15 @@ export default function CardCompleto(props) {
             variant="contained"
             style={{
               backgroundColor: "#f2f2f2",
-              marginRight: "20px",
+              width: '50%',
+              marginRight: '10px'
             }}
           >
             Capturar
           </Button>
           <Button onClick={props.onClickDetalhes} 
           color="secondary"
-          style={{border:'1px solid green'}}
+          style={{border:'1px solid green', width: '50%', margin: '0'}}
           >
             Ver detalhes
           </Button>

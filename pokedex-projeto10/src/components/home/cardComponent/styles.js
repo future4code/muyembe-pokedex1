@@ -10,7 +10,7 @@ export const CardImagem = styled.div`
 export const ImgPokemon = styled.img`
     padding: 1vh;
     height: 15vh;
-    width: 14vh;
+    width: 15vh;
     margin-top: 0,2vh;
 `
 
