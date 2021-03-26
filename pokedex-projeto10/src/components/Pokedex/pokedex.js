@@ -1,11 +1,11 @@
-// // import React, { useContext, useEffect} from 'react'
-// // // import PokeCard from './cardComponent/PokeCard'
-// // import GlobalStateContext from '../../Global/globalStateContext'
-// // import { ContainerHome } from './cardComponent/styles'
-// // // import ButtonAppBar from './Pokedex/barraHeaderPokedex/barraHeader'
+import React, { useContext, useEffect} from 'react'
+/* import PokeCard from './cardComponent/PokeCard' */
+import GlobalStateContext from '../../Global/globalStateContext'
+/* import { ContainerHome } from './cardComponent/styles' */
+import ButtonAppBar from './barraHeaderPokedex/barraHeader'
 
-// // function Pokedex() { 
-// //   const { setter, states, requests } = useContext(GlobalStateContext)
+function Pokedex() { 
+  const { setters, states, requests } = useContext(GlobalStateContext)
 
 // //   useEffect(() => {
 // //     requests.listaPokemons()
@@ -18,11 +18,12 @@
 // //     states.listaPokemons.splice(index, 1)
 // //   };
 
-//   return (
-//     <div>
-//         <p> Pokedex </p>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+      <ButtonAppBar/>
+        <p> Pokedex </p>
+    </div>
+  )
+}
 
 // export default Pokedex;

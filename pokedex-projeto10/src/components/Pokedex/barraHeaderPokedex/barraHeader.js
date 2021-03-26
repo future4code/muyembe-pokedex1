@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../themes/theme';
+import theme from '../themes/theme'
 import GlobalStateContext from '../../../Global/globalStateContext'
 
 
