@@ -1,11 +1,11 @@
 import React, { useContext, useEffect} from 'react'
-import PokeCard from './cardComponent/PokeCard'
+/* import PokeCard from './cardComponent/PokeCard' */
 import GlobalStateContext from '../../Global/globalStateContext'
-import { ContainerHome } from './cardComponent/styles'
-import ButtonAppBar from './Pokedex/barraHeaderPokedex/barraHeader'
+/* import { ContainerHome } from './cardComponent/styles' */
+import ButtonAppBar from './barraHeaderPokedex/barraHeader'
 
 function Pokedex() { 
-  const { setter, states, requests } = useContext(GlobalStateContext)
+  const { setters, states, requests } = useContext(GlobalStateContext)
 
   useEffect(() => {
     requests.listaPokemons()
@@ -20,6 +20,7 @@ const removerPokedex = (novoPokemon) => {
 
   return (
     <div>
+      <ButtonAppBar/>
         <p> Pokedex </p>
     </div>
   )
