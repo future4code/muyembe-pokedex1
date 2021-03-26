@@ -28,7 +28,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar style={{backgroundColor: '#232323' }}>
-          <DivHeader>
+          <DivHeader style ={{display: 'flex', placeContent: 'space-between'}}>
             <img alt="pokemon-logo" style={{height: '5vh'}} src="https://i2.wp.com/multarte.com.br/wp-content/uploads/2019/03/pokemon-png-logo.png?fit=2000%2C736&ssl=1"></img> 
             <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
               Ir pra Pokedex

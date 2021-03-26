@@ -25,3 +25,8 @@ export const MovesList = styled.p`
     border-radius: 10px;
 
 `
+
+export const TypeImage = styled.img`
+    width: 4vw;
+    height: 10vh;
+`

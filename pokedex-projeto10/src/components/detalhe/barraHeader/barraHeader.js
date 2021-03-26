@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../themes/theme';
 import GlobalStateContext from '../../../Global/globalStateContext'
+import {useHistory} from 'react-router-dom'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,9 +24,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
-  const {states} = useContext(GlobalStateContext)
+  const history = useHistory()
+
+
+  const voltar = () => {
+    history.replace("/")
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -33,13 +39,16 @@ export default function ButtonAppBar() {
       <AppBar style={{textAlign: 'center'}} position="fixed">
         <Toolbar style={{backgroundColor: '#232323' }}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}}>VOLTAR</Button>
+            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}} onClick={voltar}>VOLTAR</Button>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-           {/* <p>{states.pokemonsDados.name}</p> */}
+           <p>{props.name?.toUpperCase()}</p>
           </Typography>
           <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
-        Adicionar/Remover da Pokedex
+        Adicionar
+      </Button>
+      <Button style={{marginLeft: '10px', backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
+        Remover da Pokedex
       </Button>
         </Toolbar>
       </AppBar>

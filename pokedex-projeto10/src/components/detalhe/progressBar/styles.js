@@ -16,6 +16,7 @@ export const ProgressDone = styled.div`
     justify-content: center;
     align-items: center;
     transition: 1s ease 0.3s;
+    color: #232323;
 
 `
 

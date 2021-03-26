@@ -9,8 +9,8 @@ export const CardImagem = styled.div`
 
 export const ImgPokemon = styled.img`
     padding: 1vh;
-    height: 10vh;
-    width: 10vh;
+    height: 15vh;
+    width: 14vh;
     margin-top: 0,2vh;
 `
 
@@ -26,8 +26,8 @@ export const ContainerHome = styled.div`
     display: grid;
     justify-content: center;
     align-items: center;
-    margin-top: 7vh;
-    grid-template-columns: auto auto auto auto auto;
+    margin-top: 6vh;
+    grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
 `
 
@@ -40,10 +40,29 @@ export const DivNomeImagem = styled.div`
 
 export const DivBotoes = styled.div`
     display: flex;
-    justify-content: space-around;
+    width: 100%;
+    height: 15vh;
+    padding-left: 10px;
+`
+
+export const DivBottom = styled.div`
+    display: flex;
+    align-items: space-between;
+    padding-bottom: 10px;
+`
+
+export const DivType = styled.div`
+    width: 70%;
+    height: 100%;
+    display: flex;
     align-items: center;
-    height: 5vh;
-    margin-left: 1vh;
-    margin-right: 1vh;
+
+
+`
+
+export const TypeImage = styled.img`
+    width: 4vw;
+    height: 10vh;
+    margin-left: 20px;
 `
 

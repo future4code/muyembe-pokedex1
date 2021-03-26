@@ -6,16 +6,13 @@ const Router = () => {
     return (
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <TelaHome/>
-          </Route> */}
-        {/*   <Route exact path="/pokedex">
+          </Route> 
+           {/* <Route exact path="/pokedex">
             <PaginaDeFormulario/>
-          </Route> */}
-          {/* <Route exact path="/detalhes/:nomePokemon">
-            <TelaDetalhe/>
-          </Route> */}
-          <Route>
+          </Route>  */}
+           <Route exact path="/detalhes/:nomePokemon">
             <TelaDetalhe/>
           </Route>
         </Switch>
