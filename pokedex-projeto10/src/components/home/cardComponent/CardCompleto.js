@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Chip from "@material-ui/core/Chip";
 import {
   CardImagem,
   ImgPokemon,
@@ -12,8 +11,7 @@ import {
   DivType,
   DivNomeImagem,
   DivBotoes,
-  DivBottom,
-  TypeImage
+  DivBottom
 } from "./styles";
 import TipoDoPokemon from './pokemonTypesHome'
 
@@ -28,23 +26,6 @@ const useStyles = makeStyles({
 
 export default function CardCompleto(props) {
   const classes = useStyles();
-
-
-
-  const corBotao = () => {
-    switch (props.tipoPokemon) {
-      case "grass":
-        return "#009705";
-      case "fire":
-        return "#D87508";
-      case "water":
-        return "#09D7F5";
-      case "bug":
-        return "#01E309";
-      default:
-        return;
-    }
-  };
 
   return (
     <DivCard>
