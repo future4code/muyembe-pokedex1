@@ -32,11 +32,10 @@ const PokeCard = (props) => {
         console.log(states.pokedex)
     }
 
-
     const onClickDetalhes = () => {
       history.push(`/detalhes/${props.nome.toLowerCase()}`)
     }
-
+ 
     return (
         <div>
             {dadosPokemon &&
