@@ -26,12 +26,8 @@ const PokeCard = (props) => {
 
     const addPokedex = (pokemon) => { 
         const novaPokedex = [...states.pokedex, pokemon]
-
-        setters.setPokedex(novaPokedex)
-        
-        
+        setters.setPokedex(novaPokedex)  
     }
-    console.log(states.pokedex)
 
     const onClickDetalhes = () => {
       history.push(`/detalhes/${props.nome.toLowerCase()}`)
