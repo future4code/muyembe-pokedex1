@@ -3,22 +3,39 @@ import PokeCard from './cardComponent/PokeCard'
 import GlobalStateContext from '../../Global/globalStateContext'
 import { ContainerHome } from './cardComponent/styles'
 import ButtonAppBar from './barraHeader/barraHeader'
+import {history, useHistory} from 'react-router-dom'
 
 const TelaHome = () => {  
   const { states, requests } = useContext(GlobalStateContext)
+  const history = useHistory()
 
   useEffect(() => {
     requests.listaPokemons()
   }, [])
 
+  
+  let arrayPokemons = states.pokemons.filter((pokemon) => {
+    const estaNaPokedex = states.pokedex.some((pokemonPokedex) => {
+      return pokemonPokedex.name === pokemon.name
+    })
+    if(estaNaPokedex) {
+    return false        
+    } else {
+      return true
+    }
+  })
+
+  const onClickPokedex = () => {
+    history.push("/pokedex")
+}
   return (
     <div>
-      <ButtonAppBar/>
+      <ButtonAppBar onClickPokedex={onClickPokedex}/>
       <ContainerHome>{
-      states.pokemons.map((pokemon) => {
+      arrayPokemons.map((pokemon) => {
           return (
             <PokeCard
-              nome={pokemon.name}
+             key={pokemon.name} nome={pokemon.name}
             />
           )
         })}
