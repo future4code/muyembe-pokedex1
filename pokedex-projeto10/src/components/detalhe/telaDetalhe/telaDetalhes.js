@@ -9,6 +9,7 @@ const TelaDetalhe = () => {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonImage, setPokemonImage] = useState("");
   const params = useParams();
+  const [evolutionChain, setEvolutionChain] = useState([])
 
   useEffect(() => {
     buscaPokemon();
@@ -32,14 +33,41 @@ const TelaDetalhe = () => {
 
   const evolution = () => { 
     axios
-      .get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon?.data?.id}/`)
+      .get(`${BASE_URL}/pokemon/${params.nomePokemon}`)
       .then((response) => {
-        console.log("é esse aqui", response);
+        const url = response.data.species.url
+        console.log('primeira requisição com params.nomePokemon', response)
+        console.log(url)
+        return axios.get(url)
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((response) => {
+        const url = response.data.evolution_chain.url
+        return axios.get(url)
+      })
+      .then((response) => {
+        setEvolutionChain(response.data.chain)
+      })
+      .catch()
+    // axios.get(url).then((response) => {
+    //   const url = response.data.evolution_chain.url
+    //   console.log('Resposta evolution', response)
+    //   axios.get(url).then((response) => {
+    //     setEvolutionChain(response.data.chain)
+    //     console.log("evolution Chain aqui!!", response)
+        
+    //   }).catch((error) => {
+    //     console.log(error)
+    //   })
+    // }).catch((error) => {
+    //   console.log("resposta evolution", error)
+    // })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
+
+  console.log(evolutionChain)
   return (
     <div>
       <ButtonAppBar name={pokemon?.data?.name } />

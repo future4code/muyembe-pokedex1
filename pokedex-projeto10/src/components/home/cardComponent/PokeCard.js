@@ -29,13 +29,19 @@ const PokeCard = (props) => {
 
         setters.setPokedex(novaPokedex)
         
-        console.log(states.pokedex)
+        
     }
+    console.log(states.pokedex)
 
     const onClickDetalhes = () => {
       history.push(`/detalhes/${props.nome.toLowerCase()}`)
     }
+<<<<<<< HEAD
  
+=======
+
+    
+>>>>>>> 0e1325ad821698bc73b672d23fdbdfefe8027798
     return (
         <div>
             {dadosPokemon &&

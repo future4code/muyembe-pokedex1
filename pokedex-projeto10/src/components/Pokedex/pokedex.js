@@ -5,7 +5,7 @@ import GlobalStateContext from '../../Global/globalStateContext'
 import ButtonAppBar from './barraHeaderPokedex/barraHeader'
 import CardCompleto from './CardCompleto'
 
-function Pokedex() { 
+function Pokedex(props) { 
   const { setters, states, requests } = useContext(GlobalStateContext)
 
 // //   useEffect(() => {

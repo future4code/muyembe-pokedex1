@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -31,7 +31,7 @@ export default function ButtonAppBar() {
         <Toolbar style={{backgroundColor: '#232323' }}>
           <DivHeader style ={{display: 'flex', placeContent: 'space-between'}}>
             <img alt="pokemon-logo" style={{height: '5vh'}} src="https://i2.wp.com/multarte.com.br/wp-content/uploads/2019/03/pokemon-png-logo.png?fit=2000%2C736&ssl=1"></img> 
-            <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
+            <Button onClick={props.onClickPokedex} style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
               Ir pra Pokedex
             </Button>
           </DivHeader>
