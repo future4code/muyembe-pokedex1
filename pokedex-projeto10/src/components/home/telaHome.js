@@ -3,7 +3,7 @@ import PokeCard from './cardComponent/PokeCard'
 import GlobalStateContext from '../../Global/globalStateContext'
 import { ContainerHome } from './cardComponent/styles'
 import ButtonAppBar from './barraHeader/barraHeader'
-import {history, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const TelaHome = () => {  
   const { states, requests } = useContext(GlobalStateContext)
@@ -12,16 +12,15 @@ const TelaHome = () => {
   useEffect(() => {
     requests.listaPokemons()
   }, [])
-
   
   let arrayPokemons = states.pokemons.filter((pokemon) => {
     const estaNaPokedex = states.pokedex.some((pokemonPokedex) => {
       return pokemonPokedex.name === pokemon.name
     })
-    if(estaNaPokedex) {
-    return false        
+      if(estaNaPokedex) {
+        return false        
     } else {
-      return true
+        return true
     }
   })
 
