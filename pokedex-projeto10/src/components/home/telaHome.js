@@ -9,7 +9,7 @@ const TelaHome = () => {
 
   useEffect(() => {
     requests.listaPokemons()
-  }, [requests])
+  }, [])
 
   return (
     <div>

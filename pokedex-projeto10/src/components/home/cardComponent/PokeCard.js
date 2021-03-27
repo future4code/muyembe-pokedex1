@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 import CardCompleto from './CardCompleto'
+import GlobalStateContext from '../../../Global/globalStateContext'
 
 const PokeCard = (props) => {
+    const { states, setters } = useContext(GlobalStateContext)
 
     const [dadosPokemon, setDadosPokemon] = useState()
     
@@ -22,6 +24,15 @@ const PokeCard = (props) => {
         })
     }
 
+    const addPokedex = (pokemon) => { 
+        const novaPokedex = [...states.pokedex, pokemon]
+
+        setters.setPokedex(novaPokedex)
+        
+        console.log(states.pokedex)
+    }
+
+
     const onClickDetalhes = () => {
       history.push(`/detalhes/${props.nome.toLowerCase()}`)
     }
@@ -34,6 +45,7 @@ const PokeCard = (props) => {
                     nomePokemon={props.nome}
                     tipoPokemon={dadosPokemon.types[0].type.name}
                     onClickDetalhes={onClickDetalhes}
+                    onClickAdicionar={() => addPokedex(dadosPokemon)}
                 /> }
         </div>
     )
