@@ -1,26 +1,46 @@
 import React, { useContext, useEffect} from 'react'
-import PokeCard from './cardComponent/PokeCard'
 import GlobalStateContext from '../../Global/globalStateContext'
-import { ContainerHome } from './cardComponent/styles'
-import ButtonAppBar from './Pokedex/barraHeaderPokedex/barraHeader'
+import ButtonAppBar from './HeaderPokedex/barraHeader'
+
 
 function Pokedex() { 
-  const { setter, states, requests } = useContext(GlobalStateContext)
+  const { states, setters, requests } = useContext(GlobalStateContext)
 
-  useEffect(() => {
-    requests.listaPokemons()
-  }, [requests])
 
-const removerPokedex = (novoPokemon) => {
-    const index = states.listaPokemons.findIndex((i) => i.id === novoPokemon.id);
-    const novaPokedex = [...states.pokedexHomeList, novoPokemon]
-    setters.setDadosPokemon(novaPokedex);
-    states.listaPokemons.splice(index, 1)
-  };
+  // useEffect(() => {
+  //   requests.listaPokemons()
+  // }, [requests])
+
+// // // const removerPokedex = () => {
+// // //     const novoPokemonPokedex = states.pokedex.filter ((pokemon, index, array) => {
+// // //       return pokemon[index] === index
+
+// //     }) 
+
+//     setPokedex ([... states.pokedex])
+//     const index = states.listaPokemons((i) => i.id === novoPokemon.id);
+//     const novaPokedex = [...states.pokedexHomeList, novoPokemon]
+//     setters.setDadosPokemon(novaPokedex);
+//     requests.listaPokemons.splice(index)
+//   };
 
   return (
     <div>
-        <p> Pokedex </p>
+        <ButtonAppBar />
+        {states.pokedex && states.pokedex.map((pokemon) => {
+          return (
+          <CardCompleto  
+            fotoPokemon={dadosPokemon.sprites.versions['generation-v']['black-white'].animated.front_default}
+            nomePokemon={props.nome}
+            tipoPokemon={dadosPokemon.types[0].type.name}
+            // onClickDetalhes={onClickDetalhes}
+            /> 
+          })
+
+        })
+        
+        {removerPokedex()}
+
     </div>
   )
 }
