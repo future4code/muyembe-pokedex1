@@ -35,11 +35,8 @@ export default function ButtonAppBar(props) {
             <Button onClick={props.onClickVoltar} variant="contained" style={{backgroundColor: '#f2f2f2'}}>VOLTAR</Button>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-           {/* <p>{states.pokemonsDados.name}</p> */}
+            POKEDEX
           </Typography>
-          <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
-        Adicionar/Remover da Pokedex
-      </Button>
         </Toolbar>
       </AppBar>
     </div>

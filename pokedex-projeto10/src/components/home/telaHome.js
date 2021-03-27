@@ -11,7 +11,7 @@ const TelaHome = () => {
 
   useEffect(() => {
     requests.listaPokemons()
-  }, [])
+  }, [requests])
   
   let arrayPokemons = states.pokemons.filter((pokemon) => {
     const estaNaPokedex = states.pokedex.some((pokemonPokedex) => {
