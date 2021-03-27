@@ -71,6 +71,7 @@ export default function CardCompleto(props) {
         </DivBotoes>
         <DivBottom>
           <Button
+            onClick={props.onClickAdicionar}
             variant="contained"
             style={{
               backgroundColor: "#f2f2f2",
