@@ -5,16 +5,15 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { useState } from "react";
 import { Progress } from "../progressBar/progressBar";
-import {StyledP, StyledStat, MovesList} from  './styles'
+import {StyledP, StyledStat, MovesList, DivResponsiva} from  './styles'
 import PokemonTypes from './pokemontypes'
 import EvolutionChain from './evolutionChain'
 
 
 export default function SimpleContainer(props) {
   const [isShiny, setIsShiny] = useState(false)
-
-
- const onClickShinyFront = () => {
+ 
+  const onClickShinyFront = () => {
   setIsShiny(!isShiny)
  }
  
@@ -23,9 +22,6 @@ export default function SimpleContainer(props) {
     <React.Fragment>
       <CssBaseline />
       <Container
-
-      
-        maxWidth="xl"
         style={{
           padding: "0",
           display: "flex",
@@ -33,7 +29,7 @@ export default function SimpleContainer(props) {
           justifyContent: "center",
         }}
       >
-        
+       
         <div>
           <Box
             style={{

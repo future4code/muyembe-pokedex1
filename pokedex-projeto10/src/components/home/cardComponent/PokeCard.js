@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
 import axios from 'axios'
 import CardCompleto from './CardCompleto'
 import GlobalStateContext from '../../../Global/globalStateContext'
+import {onClickDetalhes}  from '../../../funcoesNavegacao/navegacao'
+import { useHistory } from 'react-router'
 
 const PokeCard = (props) => {
-    const { states, setters } = useContext(GlobalStateContext)
+    const { requests } = useContext(GlobalStateContext)
+
+    const history = useHistory()
 
     const [dadosPokemon, setDadosPokemon] = useState()
-    
-    const history = useHistory()
 
     useEffect(() => {
         pegarDadosPokemon()
@@ -23,26 +24,16 @@ const PokeCard = (props) => {
             console.log(err)
         })
     }
-
-    const addPokedex = (pokemon) => { 
-        const novaPokedex = [...states.pokedex, pokemon]
-        setters.setPokedex(novaPokedex)  
-    }
-
-    const onClickDetalhes = () => {
-      history.push(`/detalhes/${props.nome.toLowerCase()}`)
-    }
-
     
     return (
         <div>
             {dadosPokemon &&
                 <CardCompleto  
                     fotoPokemon={dadosPokemon.sprites.versions['generation-v']['black-white'].animated.front_default}
-                    nomePokemon={props.nome}
+                    nomePokemon={dadosPokemon.name}
                     tipoPokemon={dadosPokemon.types[0].type.name}
-                    onClickDetalhes={onClickDetalhes}
-                    onClickAdicionar={() => addPokedex(dadosPokemon)}
+                    onClickDetalhes={() => onClickDetalhes(history, dadosPokemon.name)}
+                    onClickAdicionar={() => requests.addPokedex(dadosPokemon)}
                 /> }
         </div>
     )

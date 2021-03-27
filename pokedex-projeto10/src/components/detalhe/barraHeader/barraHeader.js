@@ -9,6 +9,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../themes/theme';
 import GlobalStateContext from '../../../Global/globalStateContext'
 import {useHistory} from 'react-router-dom'
+import {onClickHome} from '../../../funcoesNavegacao/navegacao'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,18 +29,13 @@ export default function ButtonAppBar(props) {
   const classes = useStyles();
   const history = useHistory()
 
-
-  const voltar = () => {
-    history.replace("/")
-  }
-
   return (
     <ThemeProvider theme={theme}>
     <div className={classes.root}>
       <AppBar style={{textAlign: 'center'}} position="fixed">
         <Toolbar style={{backgroundColor: '#232323' }}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}} onClick={voltar}>VOLTAR</Button>
+            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}} onClick={() => onClickHome(history)}>VOLTAR</Button>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
            <p>{props.name?.toUpperCase()}</p>
