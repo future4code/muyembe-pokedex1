@@ -1,13 +1,12 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { useState } from "react";
 import { Progress } from "../progressBar/progressBar";
-import {StyledP, StyledStat, MovesList, DivResponsiva} from  './styles'
+import {StyledP, StyledStat, MovesList} from  './styles'
 import PokemonTypes from './pokemontypes'
-import EvolutionChain from './evolutionChain'
 
 
 export default function SimpleContainer(props) {
@@ -32,8 +31,8 @@ export default function SimpleContainer(props) {
        
         <div>
           <Box
+            key={props.pokemon.name}
             style={{
-              backgroundColor: "#f2f2f2",
               width: "15vw",
               height: "30vh",
               border: "1px solid black",
@@ -51,19 +50,19 @@ export default function SimpleContainer(props) {
               onClick={onClickShinyFront}
               style={{ width: "9vw", height: "20vh", cursor: 'pointer' }}
               src={props.pokemonImage.front_shiny}
-
+              alt={props.pokemon.name}
             /> : <img
             onClick={onClickShinyFront}
             style={{ width: "9vw", height: "20vh", cursor: 'pointer' }}
             src={props.pokemonImage.front_default}
-
+            alt={props.pokemon.name}
           /> }
             
             
           </Box>
           <Box
+            key={props.pokemon.name}
             style={{
-              backgroundColor: "#f2f2f2",
               width: "15vw",
               height: "30vh",
               border: "1px solid black",
@@ -81,19 +80,20 @@ export default function SimpleContainer(props) {
               onClick={onClickShinyFront}
               style={{ width: "8vw", height: "16vh", cursor: 'pointer' }}
               src={props.pokemonImage.back_shiny}
+              alt={props.pokemon.name}
 
             /> : <img
             onClick={onClickShinyFront}
             style={{ width: "8vw", height: "16vh", cursor: 'pointer' }}
             src={props.pokemonImage.back_default}
-
+            alt={props.pokemon.name}
           /> }
           </Box>
         </div>
 
         {props.pokemon && props.pokemon.data && props.pokemon.data.stats.length > 0 ?  <Box
+          key={props.pokemon.name}
           style={{
-            backgroundColor: "#f2f2f2",
             width: "20vw",
             height: "64vh",
             border: "1px solid black",
@@ -116,12 +116,12 @@ export default function SimpleContainer(props) {
             }}
           >
             
-            <StyledP>HP:{<Progress done={props.pokemon.data.stats[0].base_stat}/>}</StyledP>
-            <StyledP>Attack: {<Progress done={props.pokemon.data.stats[1].base_stat}/>}</StyledP>
-            <StyledP>Defense:{<Progress done={props.pokemon.data.stats[2].base_stat}/>}</StyledP>
-            <StyledP>SP Attack: {<Progress done={props.pokemon.data.stats[3].base_stat}/>}</StyledP>
-            <StyledP>SP Defense:{<Progress done={props.pokemon.data.stats[4].base_stat}/>}</StyledP>
-            <StyledP>Speed:{<Progress done={props.pokemon.data.stats[5].base_stat}/>}</StyledP>
+            <StyledP key={props.pokemon.name}>HP:{<Progress done={props.pokemon.data.stats[0].base_stat}/>}</StyledP>
+            <StyledP key={props.pokemon.name}>Attack: {<Progress done={props.pokemon.data.stats[1].base_stat}/>}</StyledP>
+            <StyledP key={props.pokemon.name}>Defense:{<Progress done={props.pokemon.data.stats[2].base_stat}/>}</StyledP>
+            <StyledP key={props.pokemon.name}>SP Attack: {<Progress done={props.pokemon.data.stats[3].base_stat}/>}</StyledP>
+            <StyledP key={props.pokemon.name}>SP Defense:{<Progress done={props.pokemon.data.stats[4].base_stat}/>}</StyledP>
+            <StyledP key={props.pokemon.name}>Speed:{<Progress done={props.pokemon.data.stats[5].base_stat}/>}</StyledP>
           </div>
           
         </Box> : ''}
@@ -129,7 +129,6 @@ export default function SimpleContainer(props) {
         <div>
           <Box
             style={{
-              backgroundColor: "#f2f2f2",
               width: "30vw",
               height: "10vh",
               border: "1px solid black",
@@ -149,8 +148,8 @@ export default function SimpleContainer(props) {
           </Box>
 
           <Box
+            key={props.pokemon.name}
             style={{
-              backgroundColor: "#f2f2f2",
               width: "30vw",
               height: "50vh",
               border: "1px solid black",
@@ -171,15 +170,14 @@ export default function SimpleContainer(props) {
           }}> 
             
             <div><StyledStat>Moves</StyledStat></div>
-            <MovesList>{props.pokemon.data.moves[0].move.name.toUpperCase()}</MovesList>
-            <MovesList>{props.pokemon.data.moves[1].move.name.toUpperCase()}</MovesList>
-            <MovesList>{props.pokemon.data.moves[2].move.name.toUpperCase()}</MovesList>
-            <MovesList>{props.pokemon.data.moves[3].move.name.toUpperCase()}</MovesList>
+            <MovesList key={props.pokemon.name}>{props.pokemon.data.moves[0].move.name.toUpperCase()}</MovesList>
+            <MovesList key={props.pokemon.name}>{props.pokemon.data.moves[1].move.name.toUpperCase()}</MovesList>
+            <MovesList key={props.pokemon.name}>{props.pokemon.data.moves[2].move.name.toUpperCase()}</MovesList>
+            <MovesList key={props.pokemon.name}>{props.pokemon.data.moves[3].move.name.toUpperCase()}</MovesList>
 
             </div> : '' }
           
           </Box>
-          {/* <EvolutionChain/> */}
         </div>
         <Typography
           component="div"

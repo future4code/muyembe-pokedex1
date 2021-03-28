@@ -52,23 +52,6 @@ const TelaDetalhe = () => {
         setEvolutionChain(response.data.chain)
       })
       .catch()
-    // axios.get(url).then((response) => {
-    //   const url = response.data.evolution_chain.url
-    //   console.log('Resposta evolution', response)
-    //   axios.get(url).then((response) => {
-    //     setEvolutionChain(response.data.chain)
-    //     console.log("evolution Chain aqui!!", response)
-        
-    //   }).catch((error) => {
-    //     console.log(error)
-    //   })
-    // }).catch((error) => {
-    //   console.log("resposta evolution", error)
-    // })
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
 
   console.log(evolutionChain)
