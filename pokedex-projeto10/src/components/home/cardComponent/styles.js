@@ -87,3 +87,22 @@ export const TypeImage = styled.img`
 }
 `
 
+export const DivBotoesPagina = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+` 
+
+export const BotoesPagina = styled.button`
+    height: 5vh;
+    width: 5vh;
+    margin: 1vh;
+    border-radius: 2vh;
+
+:focus {
+    color: white;
+    background-color: black;
+}
+` 
