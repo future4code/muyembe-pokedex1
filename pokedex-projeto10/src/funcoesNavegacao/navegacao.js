@@ -6,7 +6,6 @@
         history.push(`/detalhes/${nomePokemon}`)
     }
 
-    export const onClickHome = (history) => {
-        history.push('/')
-    }
-
+    export const onClickVoltar = (history) => {
+        history.goBack('/')
+      }

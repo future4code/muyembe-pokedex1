@@ -9,7 +9,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../themes/theme';
 import GlobalStateContext from '../../../Global/globalStateContext'
 import {useHistory} from 'react-router-dom'
-import {onClickHome} from '../../../funcoesNavegacao/navegacao'
+import {onClickVoltar} from '../../../funcoesNavegacao/navegacao'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,15 +35,31 @@ export default function ButtonAppBar(props) {
       <AppBar style={{textAlign: 'center'}} position="fixed">
         <Toolbar style={{backgroundColor: '#232323' }}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}} onClick={() => onClickHome(history)}>VOLTAR</Button>
+            <Button variant="contained" style={{backgroundColor: '#f2f2f2'}} onClick={() => onClickVoltar(history)}>VOLTAR</Button>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
            <p>{props.name?.toUpperCase()}</p>
           </Typography>
-          <Button style={{backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
+          <Button 
+            style=
+            {{
+              backgroundColor: '#f2f2f2'
+            }} 
+            variant="contained" 
+            color="secondary"
+            onClick={props.onClickAdicionar}
+            >
         Adicionar
       </Button>
-      <Button style={{marginLeft: '10px', backgroundColor: '#f2f2f2'}} variant="contained" color="secondary">
+      <Button
+         style={{
+          marginLeft: '10px',
+          backgroundColor: '#f2f2f2'
+          }} 
+          variant="contained"
+          color="secondary"
+          onClick={props.onClickRemover}
+          >
         Remover da Pokedex
       </Button>
         </Toolbar>

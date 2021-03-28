@@ -5,20 +5,19 @@ import ButtonAppBar from './barraHeaderPokedex/barraHeader'
 import CardCompleto from './CardCompleto'
 import {ContainerHome} from './card/styles'
 import {Loading} from '../Loading/telaLoading'
+import {onClickVoltar, onClickDetalhes} from '../../funcoesNavegacao/navegacao'
 
 function Pokedex() { 
-  const { states } = useContext(GlobalStateContext)
+  const { states, requests } = useContext(GlobalStateContext)
 
   const history = useHistory()
-
-  const onClickVoltar = () => {
-    history.push('/')
-  }
+  
+  console.log(states.pokedex)
 
   return (
     <div>
       <ButtonAppBar
-        onClickVoltar={onClickVoltar}
+        onClickVoltar={() => onClickVoltar(history)}
       />
       <ContainerHome>
       {states.pokedex.length === 0 ? <Loading/> : (
@@ -28,6 +27,8 @@ function Pokedex() {
               fotoPokemon={pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}
               nomePokemon={pokemon.name}
               tipoPokemon={pokemon.types[0].type.name}
+              onClickRemover={() => requests.removerPokemon(pokemon)}
+              onClickDetalhes={() => onClickDetalhes(history, pokemon.name)}
           />
         )
       }))}

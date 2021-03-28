@@ -1,11 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import ButtonAppBar from "../barraHeader/barraHeader";
 import SimpleContainer from "../containerPrincipal/containerPrincipal";
 import axios from 'axios'
 import {BASE_URL} from '../../requisições/requisicoes'
 import {useParams} from 'react-router-dom'
+import GlobalStateContext from "../../../Global/globalStateContext";
 
 const TelaDetalhe = () => {
+
+  const { requests } = useContext(GlobalStateContext)
+
   const [pokemon, setPokemon] = useState([]);
   const [pokemonImage, setPokemonImage] = useState("");
   const params = useParams();
@@ -70,7 +74,11 @@ const TelaDetalhe = () => {
   console.log(evolutionChain)
   return (
     <div>
-      <ButtonAppBar name={pokemon?.data?.name } />
+      <ButtonAppBar 
+        name={pokemon?.data?.name }
+        onClickAdicionar={() => requests.addPokedex(pokemon.data)}
+        onClickRemover={() => requests.removerPokemon(pokemon.data)}
+      />
       <SimpleContainer pokemon={pokemon} pokemonImage={pokemonImage}/>
     </div>
   );
