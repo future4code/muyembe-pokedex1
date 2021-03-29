@@ -26,7 +26,7 @@ export const ContainerHome = styled.div`
     display: grid;
     justify-content: center;
     align-items: center;
-    margin-top: 3vh;
+    margin-top: 7vh;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
 
@@ -35,19 +35,22 @@ export const ContainerHome = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2vh;
+    margin-top: 7vh;
 }
 
 @media screen and (min-width: 820px) and (max-width: 1150px){
     grid-template-columns: auto auto;
+    margin-top: 7vh;
 }
 
 @media screen and (min-width: 1150px) and (max-width: 1500px){
     grid-template-columns: auto auto auto;
+    margin-top: 7vh;
 }
 
 @media screen and (min-width: 1500px){
     grid-template-columns: auto auto auto auto;
+    margin-top: 7vh;
 }
 `
 
