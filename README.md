@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Luiz Fernando Barbosa
 - Nayara Lenzi
 
-Link do Surge: silky-smile.surge.sh
+Link do Surge: annoying-sense.surge.sh/
 
 O que funciona:
 - O projeto foi criado com Material-UI.
