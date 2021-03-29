@@ -19,29 +19,30 @@ export const DivCard = styled.div`
     justify-content: center;
     align-items: center;
     margin: 2vh;
-    margin-top: 2vh;
 `
 
 export const ContainerHome = styled.div`
     display: grid;
     justify-content: center;
     align-items: center;
-    margin-top: 3vh;
+    margin-top: 7vh;
 
 @media screen and (min-width: 320px) and (max-width: 800px){
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2vh;
+    margin-top: 7vh;
 }
 
 @media screen and (min-width: 820px) and (max-width: 1150px){
     grid-template-columns: auto auto;
+    margin-top: 7vh;
 }
 
 @media screen and (min-width: 1150px) and (max-width: 1500px){
     grid-template-columns: auto auto auto;
+    margin-top: 7vh;
 }
 
 @media screen and (min-width: 1500px){
@@ -54,13 +55,13 @@ export const DivNomeImagem = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 1vh;
 `
 
 export const DivBotoes = styled.div`
     display: flex;
     width: 100%;
-    height: 15vh;
-    padding-left: 10px;
+    height: 13vh;
 `
 
 export const DivBottom = styled.div`
@@ -78,13 +79,9 @@ export const DivType = styled.div`
 `
 
 export const TypeImage = styled.img`
-    width: 4vw;
+    width: 10vh;
     height: 10vh;
     margin-left: 20px;
-
-@media screen and (min-width: 320px) and (max-width: 800px){
-    width: 10vh;
-}
 `
 
 export const DivBotoesPagina = styled.div`

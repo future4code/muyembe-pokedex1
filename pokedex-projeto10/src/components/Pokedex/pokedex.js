@@ -11,8 +11,6 @@ function Pokedex() {
   const { states, requests } = useContext(GlobalStateContext)
 
   const history = useHistory()
-  
-  console.log(states.pokedex)
 
   return (
     <div>

@@ -13,18 +13,15 @@ const TelaDetalhe = () => {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonImage, setPokemonImage] = useState("");
   const params = useParams();
-  const [evolutionChain, setEvolutionChain] = useState([])
 
   useEffect(() => {
     buscaPokemon();
-    evolution()
-  }, []);
+  }, [])
 
   const buscaPokemon = () => {
     axios
       .get(`${BASE_URL}/pokemon/${params.nomePokemon}`)
       .then((response) => {
-        console.log(response);
         setPokemon(response);
         setPokemonImage(
           response.data.sprites.versions["generation-v"]["black-white"].animated
@@ -35,26 +32,6 @@ const TelaDetalhe = () => {
       });
   };
 
-  const evolution = () => { 
-    axios
-      .get(`${BASE_URL}/pokemon/${params.nomePokemon}`)
-      .then((response) => {
-        const url = response.data.species.url
-        console.log('primeira requisição com params.nomePokemon', response)
-        console.log(url)
-        return axios.get(url)
-      })
-      .then((response) => {
-        const url = response.data.evolution_chain.url
-        return axios.get(url)
-      })
-      .then((response) => {
-        setEvolutionChain(response.data.chain)
-      })
-      .catch()
-  };
-
-  console.log(evolutionChain)
   return (
     <div>
       <ButtonAppBar 

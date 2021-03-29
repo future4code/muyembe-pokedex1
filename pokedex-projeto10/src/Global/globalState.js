@@ -9,7 +9,7 @@ const GlobalState = (props) => {
     const [pagina, setPagina] = useState(0)
 
     const listaPokemons = () => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${pagina}&limit=20`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${pagina}&limit=30`)
         .then((res) => {
             setPokemons(res.data.results)
         }).catch((err) => {
@@ -53,19 +53,19 @@ const GlobalState = (props) => {
     }
 
     const botao2 = () => {
-        setPagina(20)
+        setPagina(30)
     }
 
     const botao3 = () => {
-        setPagina(40)
+        setPagina(60)
     }
     
     const botao4 = () => {
-        setPagina(60)
+        setPagina(90)
     }
 
     const botao5 = () => {
-        setPagina(80)
+        setPagina(120)
     }
 
     const states = { pokemons, pokedex, pagina }
