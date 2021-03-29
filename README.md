@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Luiz Fernando Barbosa
 - Nayara Lenzi
 
-Link do Surge: <a href="annoying-sense.surge.sh">annoying-sense.surge.sh/<a>
+Link do Surge: <a href="http://annoying-sense.surge.sh/">annoying-sense.surge.sh/<a>
 
 O que funciona:
 - O projeto foi criado com Material-UI.
